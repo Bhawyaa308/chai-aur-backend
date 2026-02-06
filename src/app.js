@@ -17,6 +17,14 @@ app.use(express.static("public"))
 // cookie parser ka sirf itna sa kaam hai ki main apne server se kisi ke browser ki cookies access kar pau and uski cokies se crud operation perform kar pau cuz ckuch tarike hote hai jinse secure cookies read and access kar sakte hai and vo kaam sirf server hi kar sakta hai
 app.use(cookieParser());
 
+// routes ko hamesh neeche import kiya jata hai
+import userRoutes from "./routes/user.routes.js"
+
+// routes declaration
+// ab routes ke liye app.get se seedha se use nhi kar sakte. isme hame middleware use karna padega.
+// so here, we will be using the middleware "use"
+app.use("/api/v1/users",userRoutes)
+// ye work aese karega ki jab bhi koi likhega users , to us person ko userRoutes ka accesss mil jaega
 
 export default app;
 

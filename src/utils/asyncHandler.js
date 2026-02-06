@@ -1,6 +1,6 @@
 const asyncHandler=(requestHandler)=>{
     // here we may write return too but its not necessary, bina likhe bhi iska yehi matlab hai ki ham return kar rhe hai
-    (req,res,next)=>{
+    return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err));
     }
 }
